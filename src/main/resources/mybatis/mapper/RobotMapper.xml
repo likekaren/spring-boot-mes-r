@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karen.mesr.mapper.RobotMapper">
+
+    <sql id="query_robot_where">
+        <if test="robot!=null">
+            <if test="robot.rname!=null and robot.rname!=''">
+                and rname = #{Robot.rname}
+            </if>
+        </if>
+    </sql>
+
+    <select id="findRobotList" parameterType="com.karen.mesr.bean.RobotVo" resultType="com.karen.mesr.bean.Robot">
+        SELECT * FROM ROBOT
+        <where>
+            <include refid="query_robot_where" />
+        </where>
+    </select>
+
+    <select id="findRobotAll" resultType="com.karen.mesr.bean.Robot">
+        SELECT * FROM ROBOT
+
+    </select>
+
+</mapper>

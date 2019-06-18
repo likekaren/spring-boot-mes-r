@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: root
+    password: *****
+    url: jdbc:mysql://47.103.29.1:3306/mesrobot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    data:
+      solr:
+        host: http://47.103.29.1:8080/solr/mesrobot
+  #    schema:
+#      - classpath:department.sql
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    initialization-mode: always
+
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
